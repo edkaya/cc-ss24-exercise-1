@@ -387,7 +387,7 @@ func main() {
 				"error": "Book not found in the collection",
 			})
 		}
-		return c.JSON(http.StatusCreated, book)
+		return c.JSON(http.StatusOK, book)
 	})
 
 	e.DELETE("/api/books/:id", func(c echo.Context) error {
