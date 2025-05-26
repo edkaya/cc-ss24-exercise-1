@@ -1,0 +1,21 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3030:3030"
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/app
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongo-data:
